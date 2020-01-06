@@ -16,11 +16,11 @@ public class MainUnit {
 	
 	static void test_does_balance_match_after_creation() {
 		double openBal = 20;
-		Account a = new Account(1, "Joe", openBal);
+		Account a = new CreditAccount(1, "Joe", openBal, InterestRate.businessLoan);
 		if (openBal == a.getBalance()) {
-			System.out.println("Works");
+			System.out.println("test_does_balance_match_after_creation: PASSED");
 		}else {
-			System.out.println("Nope");
+			System.out.println("test_does_balance_match_after_creation: FAILED");
 		}
 		
 	}
@@ -31,7 +31,12 @@ public class MainUnit {
 		double balDep = 40;
 		Account a = new Account(1, "Joe", openBal);
 		a.Debit(balDep);
-		System.out.println(a.getBalance());
+		if ((openBal - balDep) == a.getBalance()) {
+			System.out.println("test_does_balance_match_after_debit: PASSED");
+		}else {
+			System.out.println("test_does_balance_match_after_debit: FAILED");
+		}
+		
 		
 	}
 	
@@ -41,7 +46,11 @@ public class MainUnit {
 		double balDep = 40;
 		Account a = new Account(1, "Joe", openBal);
 		a.Credit(balDep);
-		System.out.println(a.getBalance());
+		if ((openBal + balDep) == a.getBalance()) {
+			System.out.println("test_does_balance_match_after_credit: PASSED");
+		}else {
+			System.out.println("test_does_balance_match_after_credit: FAILED");
+		}
 		
 	}
 
