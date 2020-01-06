@@ -4,4 +4,8 @@
   <artifactId>banking-core</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <name>banking-core</name>
+  <properties>
+  <maven.compiler.source>l3</maven.compiler.source>
+  <maven.compiler.compiler>l3</maven.compiler.compiler>
+  </properties>
 </project>
