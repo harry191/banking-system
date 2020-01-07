@@ -41,7 +41,6 @@ public class MainUnit {
 		
 	}
 	
-	
 	static void test_does_balance_match_after_credit() {
 		double openBal = 20;
 		double balDep = 40;
