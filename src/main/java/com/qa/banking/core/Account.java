@@ -7,7 +7,7 @@ public class Account {
 	
 	private final int id;
 	private final String name;
-	private double balance;
+	protected double balance;
 	private double amount;
 
 
@@ -15,19 +15,19 @@ public class Account {
 		return transactions;
 	}
 
-	private final AbstractList<Transaction>	transactions = new ArrayList<Transaction>();
+	protected final AbstractList<Transaction>	transactions = new ArrayList<Transaction>();
 
 	public double Credit(double deposit) {
-		balance += deposit;
+		balance = getBalance() + deposit;
 		transactions.add(new Transaction(deposit));
 		
-		return balance;
+		return getBalance();
 	}
 	
 	public double Debit(double withdrawn) {
-		balance += withdrawn * -1;
+		balance = getBalance() + withdrawn * -1;
 		transactions.add(new Transaction(withdrawn * -1));
-		return balance;
+		return getBalance();
 	}
 	
 	public double CurrentBalance(double balance) {

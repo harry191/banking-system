@@ -10,6 +10,7 @@ public class MainUnit {
 		test_does_balance_match_after_creation();
 		test_does_balance_match_after_debit();
 		test_does_balance_match_after_credit();
+		test_does_balance_match_after_debit_interest();
 		
 	}
 	
@@ -50,6 +51,19 @@ public class MainUnit {
 			System.out.println("test_does_balance_match_after_credit: PASSED");
 		}else {
 			System.out.println("test_does_balance_match_after_credit: FAILED");
+		}
+		
+	}
+	
+	static void test_does_balance_match_after_debit_interest() {
+		double openBal = 0;
+		double balDep = 20;
+		CreditAccount a = new CreditAccount(1, "Joe", openBal, InterestRate.homeLoan);
+		a.Debit(balDep);
+		if (((-balDep)*((5.0 / 100)+1)) == a.getBalance()) {
+			System.out.println("test_does_balance_match_after_debit_interest: PASSED");
+		}else {
+			System.out.println("test_does_balance_match_after_debit_interest: FAILED");
 		}
 		
 	}
